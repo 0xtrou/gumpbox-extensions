@@ -1,0 +1,56 @@
+{
+  "name": "gumpbox-mcp",
+  "displayName": "Gumpbox MCP",
+  "publisher": "gumpbox",
+  "description": "Connect VSCode, Cursor, Windsurf, and Continue to the gumpbox app via MCP.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "engines": { "vscode": "^1.95.0" },
+  "categories": ["Other", "Machine Learning", "Chat"],
+  "keywords": ["mcp", "ssh", "linux", "server-management", "ai"],
+  "main": "./dist/extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "gumpbox.setSessionUrl", "title": "Gumpbox: Set Session URL" },
+      { "command": "gumpbox.testConnection", "title": "Gumpbox: Test Connection" },
+      { "command": "gumpbox.browseSkills", "title": "Gumpbox: Browse Skills" },
+      { "command": "gumpbox.showReadme", "title": "Gumpbox: Show Readme" },
+      { "command": "gumpbox.showActivity", "title": "Gumpbox: Show Activity" },
+      { "command": "gumpbox.seedSkills", "title": "Gumpbox: Seed Starter Skills" }
+    ],
+    "configuration": {
+      "title": "Gumpbox",
+      "properties": {
+        "gumpbox.sessionUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Session URL copied from gumpbox's Global MCP panel (http://127.0.0.1:7778/global/mcp/<token>)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs --production",
+    "dev": "node esbuild.config.mjs --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo no-op",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "package": "vsce package --no-yarn",
+    "publish:marketplace": "vsce publish --no-yarn",
+    "publish:openvsx": "ovsx publish --no-yarn"
+  },
+  "dependencies": {
+    "@gumpbox/core": "workspace:*",
+    "@gumpbox/mcp-proxy": "workspace:*",
+    "@gumpbox/skills": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/node": "^20.16.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.0",
+    "@vscode/vsce": "^3.2.0",
+    "ovsx": "^0.10.0"
+  }
+}
