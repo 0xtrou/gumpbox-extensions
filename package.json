@@ -7,9 +7,9 @@
   "engines": { "node": ">=20.0.0", "pnpm": ">=9.0.0" },
   "packageManager": "pnpm@9.12.0",
   "scripts": {
-    "build": "pnpm -r --filter='./packages/*' run build",
+    "build": "pnpm --filter '@gumpbox/core' build && pnpm --filter '@gumpbox/skills' build && pnpm --filter './packages/**' run build",
     "test": "pnpm -r run test",
-    "typecheck": "pnpm -r run typecheck",
+    "typecheck": "pnpm --filter '@gumpbox/core' build && pnpm --filter '@gumpbox/skills' build && pnpm -r run typecheck",
     "lint": "pnpm -r run lint",
     "changeset": "changeset",
     "version": "changeset version",
