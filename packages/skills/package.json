@@ -1,0 +1,27 @@
+{
+  "name": "@gumpbox/skills",
+  "version": "0.0.0",
+  "description": "Bundled starter skills for gumpbox MCP client plugins.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "src/**/*.md", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node copy-skills.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo no-op",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^20.16.0"
+  },
+  "engines": { "node": ">=20.0.0" }
+}
