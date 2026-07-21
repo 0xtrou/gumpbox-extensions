@@ -1,6 +1,6 @@
 {
   "name": "@gumpbox/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Configure and install gumpbox MCP client plugins from the command line.",
   "license": "MIT",
   "type": "module",
@@ -18,7 +18,7 @@
     "lint": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@gumpbox/mcp": "workspace:*"
+    "@gumpbox/mcp": "^0.1.0"
   },
   "devDependencies": {
     "esbuild": "^0.24.0",

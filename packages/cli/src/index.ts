@@ -33,7 +33,7 @@ async function main(): Promise<void> {
       return;
     case "--version":
     case "-v":
-      console.log("0.1.0");
+      console.log("0.1.1");
       return;
     default:
       process.stderr.write(`Unknown command: ${cmd}\n`);
@@ -43,7 +43,7 @@ async function main(): Promise<void> {
 }
 
 function printHelp(): void {
-  console.log(`gumpbox CLI v0.1.0
+  console.log(`gumpbox CLI v0.1.1
 
 Usage:
   gumpbox set-url            Configure session URL (interactive prompt)
@@ -80,7 +80,7 @@ async function status(): Promise<void> {
   }
   try {
     const client = new MCPClient(cfg);
-    const info = await client.initialize({ name: "gumpbox-cli", version: "0.1.0" });
+    const info = await client.initialize({ name: "gumpbox-cli", version: "0.1.1" });
     console.log(`connected: ${info.name} v${info.version} (protocol ${info.protocolVersion ?? "?"})`);
   } catch (e) {
     console.log(`error: ${(e as Error).message}`);
@@ -95,7 +95,7 @@ async function seedSkills(): Promise<void> {
     process.exit(1);
   }
   const client = new MCPClient(cfg);
-  await client.initialize({ name: "gumpbox-cli", version: "0.1.0" });
+  await client.initialize({ name: "gumpbox-cli", version: "0.1.1" });
 
   const listResult = await client.invokeResourceAction("skills", "list", {});
   const existingNames = new Set<string>();
