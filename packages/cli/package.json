@@ -1,6 +1,6 @@
 {
   "name": "@gumpbox/cli",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Gumpbox MCP client CLI — stdio proxy, session config, installers, and bundled skills for the gumpbox app.",
   "license": "MIT",
   "type": "module",

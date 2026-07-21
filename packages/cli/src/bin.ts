@@ -12,7 +12,7 @@ import {
   type BundledSkill,
 } from "./index.js";
 
-const VERSION = "0.2.0";
+const VERSION = "0.2.1";
 
 type ClientName = "vscode" | "claude-code" | "codex" | "gemini";
 const CLIENTS: ClientName[] = ["vscode", "claude-code", "codex", "gemini"];
@@ -185,18 +185,35 @@ function proxyArgs(): string[] {
 }
 
 function writeClaudeConfig(home: string): void {
-  const dir = join(home, ".claude", "mcp-servers");
-  mkdirSync(dir, { recursive: true });
-  const config = {
-    mcpServers: {
-      gumpbox: {
-        command: proxyCommand(),
-        args: proxyArgs(),
-      },
-    },
+  // Claude Code reads MCP servers from ~/.claude.json (single JSON file at the
+  // .claude dir root, NOT a nested mcp-servers/ folder). Merge into mcpServers.
+  const claudeJsonPath = join(home, ".claude.json");
+  const entry = {
+    type: "stdio",
+    command: proxyCommand(),
+    args: proxyArgs(),
+    env: {},
   };
-  writeFileSync(join(dir, "gumpbox.json"), JSON.stringify(config, null, 2), "utf8");
-  console.log(`Wrote ${join(dir, "gumpbox.json")}`);
+
+  let prev: Record<string, unknown> = {};
+  if (existsSync(claudeJsonPath)) {
+    try {
+      prev = JSON.parse(readFileSync(claudeJsonPath, "utf8")) as Record<string, unknown>;
+    } catch {
+      prev = {};
+    }
+  }
+  const prevServers = (prev.mcpServers as Record<string, unknown>) ?? {};
+  if (prevServers.gumpbox) {
+    console.log(`${claudeJsonPath} already has gumpbox entry — skipping`);
+    return;
+  }
+  const merged = {
+    ...prev,
+    mcpServers: { ...prevServers, gumpbox: entry },
+  };
+  writeFileSync(claudeJsonPath, JSON.stringify(merged, null, 2), "utf8");
+  console.log(`Merged gumpbox into ${claudeJsonPath}`);
 }
 
 function writeCodexConfig(home: string): void {
