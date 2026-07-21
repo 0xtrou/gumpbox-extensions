@@ -44,7 +44,7 @@ export async function runStdioProxy(options: StdioProxyOptions): Promise<void> {
       if (!c) {
         throw new GumpboxError(
           "session_not_configured",
-          "Run 'Gumpbox: Set Session URL' or 'npx @gumpbox/cli set-url'.",
+          "Run 'gumpbox set-url' to configure your session URL.",
         );
       }
       config = c;
@@ -57,7 +57,6 @@ export async function runStdioProxy(options: StdioProxyOptions): Promise<void> {
     const client = new MCPClient(config);
     try {
       const httpResp = await client.rpc(req.method, (req.params ?? {}) as Record<string, unknown>);
-      // Pass through server response, rewriting id to match the host's original request.
       write({ ...httpResp, id: req.id });
     } catch (e) {
       const err = e instanceof GumpboxError ? e : new GumpboxError("gumpbox_http_error", String(e));

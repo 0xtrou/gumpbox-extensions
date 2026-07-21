@@ -1,24 +1,30 @@
 {
   "name": "@gumpbox/cli",
-  "version": "0.1.1",
-  "description": "Configure and install gumpbox MCP client plugins from the command line.",
+  "version": "0.2.0",
+  "description": "Gumpbox MCP client CLI — stdio proxy, session config, installers, and bundled skills for the gumpbox app.",
   "license": "MIT",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
     "gumpbox": "./bin/gumpbox.js"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "bin",
+    "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "node esbuild.config.mjs",
+    "build": "tsc -p tsconfig.json && node esbuild.config.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "echo no-op",
     "lint": "tsc -p tsconfig.json --noEmit"
-  },
-  "dependencies": {
-    "@gumpbox/mcp": "^0.1.0"
   },
   "devDependencies": {
     "esbuild": "^0.24.0",

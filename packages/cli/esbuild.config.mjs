@@ -1,9 +1,9 @@
 import { build } from "esbuild";
 
-// Bundle the CLI as a single Node bin. @gumpbox/mcp is bundled in — zero runtime deps to install
-// beyond @gumpbox/mcp itself, which is fine because npm installs it transitively.
+// Bundle the CLI bin as a single Node file. Library code (index.ts) is built by tsc
+// and shipped separately as dist/*.js for `import { MCPClient } from "@gumpbox/cli"`.
 await build({
-  entryPoints: ["src/index.ts"],
+  entryPoints: ["src/bin.ts"],
   bundle: true,
   platform: "node",
   format: "esm",
@@ -12,8 +12,6 @@ await build({
   banner: { js: "#!/usr/bin/env node" },
   minify: true,
   sourcemap: false,
-  // Mark @gumpbox/mcp as external so it resolves from node_modules at runtime.
-  external: ["@gumpbox/mcp"],
 });
 
 console.log("built bin/gumpbox.js");

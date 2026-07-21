@@ -1,4 +1,4 @@
-/** Bundled starter skills. Inlined as TS so the package ships self-contained — no .md file IO at runtime. */
+/** Bundled starter skills. Inlined as TS so the package ships self-contained. */
 
 export interface BundledSkill {
   name: string;

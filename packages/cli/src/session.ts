@@ -7,7 +7,7 @@ export interface SessionConfig {
   sessionUrl: string;
 }
 
-/** Path to ~/.gumpbox/session.json on POSIX, %USERPROFILE%\.gumpbox\session.json on Windows. */
+/** Path to ~/.gumpbox/session.json (POSIX) or %USERPROFILE%\.gumpbox\session.json (Windows). */
 export function getSessionConfigPath(): string {
   const home = process.env.HOME ?? process.env.USERPROFILE ?? homedir();
   return join(home, ".gumpbox", "session.json");

@@ -1,4 +1,4 @@
-import { readSessionConfig, MCPClient } from "@gumpbox/mcp";
+import { readSessionConfig, MCPClient } from "@gumpbox/cli";
 
 // build a fresh MCPClient from the on-disk session.json. throws if not configured.
 export async function getClient(): Promise<MCPClient> {
