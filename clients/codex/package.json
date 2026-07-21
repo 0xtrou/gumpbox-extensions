@@ -1,0 +1,7 @@
+{
+  "name": "@gumpbox/codex-plugin",
+  "version": "0.0.0",
+  "description": "Installer for the gumpbox MCP plugin in OpenAI Codex.",
+  "license": "MIT",
+  "scripts": { "test": "echo no-op" }
+}

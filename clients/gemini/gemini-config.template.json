@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gumpbox": {
+      "command": "gumpbox-mcp-proxy",
+      "args": []
+    }
+  }
+}

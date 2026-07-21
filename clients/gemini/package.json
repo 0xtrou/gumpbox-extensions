@@ -1,0 +1,7 @@
+{
+  "name": "@gumpbox/gemini-plugin",
+  "version": "0.0.0",
+  "description": "Installer for the gumpbox MCP plugin in Google Gemini CLI / Code Assist.",
+  "license": "MIT",
+  "scripts": { "test": "echo no-op" }
+}
