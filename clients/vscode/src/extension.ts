@@ -4,6 +4,9 @@ import { SessionConfigManager } from "./sessionConfig";
 import { McpProxyProcess } from "./mcpServer";
 import { readSessionConfig, MCPClient } from "@gumpbox/core";
 import { bundledSkills } from "@gumpbox/skills";
+import { openSkillsPanel } from "./panels/SkillsPanel";
+import { openReadmePanel } from "./panels/ReadmePanel";
+import { openActivityPanel } from "./panels/ActivityPanel";
 
 let statusBarItem: vscode.StatusBarItem;
 let sessionManager: SessionConfigManager;
@@ -36,16 +39,9 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
       await testConnection();
       await refreshStatus();
     }),
-    // stubs — real impl lands in Task 12
-    vscode.commands.registerCommand("gumpbox.browseSkills", () => {
-      void vscode.window.showInformationMessage("Skills panel — implemented in Task 12");
-    }),
-    vscode.commands.registerCommand("gumpbox.showReadme", () => {
-      void vscode.window.showInformationMessage("Readme panel — implemented in Task 12");
-    }),
-    vscode.commands.registerCommand("gumpbox.showActivity", () => {
-      void vscode.window.showInformationMessage("Activity panel — implemented in Task 12");
-    }),
+    vscode.commands.registerCommand("gumpbox.browseSkills", () => openSkillsPanel(context)),
+    vscode.commands.registerCommand("gumpbox.showReadme", () => openReadmePanel(context)),
+    vscode.commands.registerCommand("gumpbox.showActivity", () => openActivityPanel(context)),
     vscode.commands.registerCommand("gumpbox.seedSkills", async () => {
       await seedSkills();
     }),

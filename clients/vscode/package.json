@@ -28,6 +28,44 @@
           "description": "Session URL copied from gumpbox's Global MCP panel (http://127.0.0.1:7778/global/mcp/<token>)."
         }
       }
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "gumpbox.sessions",
+          "name": "Gumpbox"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "gumpbox.setSessionUrl",
+          "when": "view == gumpbox.sessions",
+          "group": "navigation"
+        },
+        {
+          "command": "gumpbox.testConnection",
+          "when": "view == gumpbox.sessions",
+          "group": "navigation"
+        },
+        {
+          "command": "gumpbox.browseSkills",
+          "when": "view == gumpbox.sessions"
+        },
+        {
+          "command": "gumpbox.showReadme",
+          "when": "view == gumpbox.sessions"
+        },
+        {
+          "command": "gumpbox.showActivity",
+          "when": "view == gumpbox.sessions"
+        },
+        {
+          "command": "gumpbox.seedSkills",
+          "when": "view == gumpbox.sessions"
+        }
+      ]
     }
   },
   "scripts": {
