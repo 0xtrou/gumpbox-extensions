@@ -111,9 +111,7 @@
     "publish:openvsx": "ovsx publish --no-yarn"
   },
   "dependencies": {
-    "@gumpbox/core": "workspace:*",
-    "@gumpbox/mcp-proxy": "workspace:*",
-    "@gumpbox/skills": "workspace:*"
+    "@gumpbox/mcp": "workspace:*"
   },
   "devDependencies": {
     "@types/vscode": "^1.95.0",

@@ -1,5 +1,6 @@
 import { build } from "esbuild";
 
+// Bundle the stdio proxy as a single Node bin file.
 await build({
   entryPoints: ["src/main.ts"],
   bundle: true,

@@ -1,7 +1,4 @@
-/**
- * JSON-RPC 2.0 message types.
- * Spec: https://www.jsonrpc.org/specification
- */
+// JSON-RPC 2.0 — https://www.jsonrpc.org/specification
 export interface JsonRPCRequest {
   jsonrpc: "2.0";
   id: string | number | null;
@@ -22,20 +19,7 @@ export interface JsonRPCResponse {
   error?: JsonRPCErrorBody;
 }
 
-/**
- * MCP resource/action types.
- * These mirror what gumpbox returns from list_resources / list_resource_actions.
- */
-export interface MCPResource {
-  name: string;
-  description?: string;
-}
-
-export interface MCPAction {
-  name: string;
-  description?: string;
-}
-
+// MCP server / tool shapes
 export interface MCPServerInfo {
   name: string;
   version: string;
@@ -47,6 +31,16 @@ export interface MCPTool {
   name: string;
   description?: string;
   inputSchema?: Record<string, unknown>;
+}
+
+export interface MCPResource {
+  name: string;
+  description?: string;
+}
+
+export interface MCPAction {
+  name: string;
+  description?: string;
 }
 
 export interface ToolResult {

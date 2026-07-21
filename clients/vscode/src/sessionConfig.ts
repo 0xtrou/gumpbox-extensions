@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { writeSessionConfig, validateSessionUrl } from "@gumpbox/core";
+import { writeSessionConfig, validateSessionUrl } from "@gumpbox/mcp";
 
 const SECRET_KEY = "gumpbox.sessionUrl";
 

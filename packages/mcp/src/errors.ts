@@ -14,12 +14,4 @@ export class GumpboxError extends Error {
     this.code = code;
     this.httpStatus = httpStatus;
   }
-
-  toJSON(): { code: GumpboxErrorCode; message: string; httpStatus?: number } {
-    return {
-      code: this.code,
-      message: this.message,
-      ...(this.httpStatus !== undefined && { httpStatus: this.httpStatus }),
-    };
-  }
 }
