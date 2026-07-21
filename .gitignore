@@ -9,3 +9,5 @@ bin/
 .vscode-test/
 coverage/
 .superpowers/
+.credentials
+.npmrc.local
