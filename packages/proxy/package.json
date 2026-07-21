@@ -1,13 +1,16 @@
 {
   "name": "@gumpbox/mcp-proxy",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Standalone stdio MCP proxy for the gumpbox app. Bridges host editors to gumpbox's HTTP MCP server.",
   "license": "MIT",
   "type": "module",
   "bin": {
     "gumpbox-mcp-proxy": "./bin/mcp-proxy.js"
   },
-  "files": ["bin", "README.md"],
+  "files": [
+    "bin",
+    "README.md"
+  ],
   "scripts": {
     "build": "node esbuild.config.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -22,5 +25,7 @@
     "typescript": "^5.6.0",
     "@types/node": "^20.16.0"
   },
-  "engines": { "node": ">=20.0.0" }
+  "engines": {
+    "node": ">=20.0.0"
+  }
 }

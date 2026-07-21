@@ -3,21 +3,53 @@
   "displayName": "Gumpbox MCP",
   "publisher": "gumpbox",
   "description": "Connect VSCode, Cursor, Windsurf, and Continue to the gumpbox app via MCP.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
-  "engines": { "vscode": "^1.95.0" },
-  "categories": ["Other", "Machine Learning", "Chat"],
-  "keywords": ["mcp", "ssh", "linux", "server-management", "ai"],
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Chat"
+  ],
+  "keywords": [
+    "mcp",
+    "ssh",
+    "linux",
+    "server-management",
+    "ai"
+  ],
   "main": "./dist/extension.js",
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "contributes": {
     "commands": [
-      { "command": "gumpbox.setSessionUrl", "title": "Gumpbox: Set Session URL" },
-      { "command": "gumpbox.testConnection", "title": "Gumpbox: Test Connection" },
-      { "command": "gumpbox.browseSkills", "title": "Gumpbox: Browse Skills" },
-      { "command": "gumpbox.showReadme", "title": "Gumpbox: Show Readme" },
-      { "command": "gumpbox.showActivity", "title": "Gumpbox: Show Activity" },
-      { "command": "gumpbox.seedSkills", "title": "Gumpbox: Seed Starter Skills" }
+      {
+        "command": "gumpbox.setSessionUrl",
+        "title": "Gumpbox: Set Session URL"
+      },
+      {
+        "command": "gumpbox.testConnection",
+        "title": "Gumpbox: Test Connection"
+      },
+      {
+        "command": "gumpbox.browseSkills",
+        "title": "Gumpbox: Browse Skills"
+      },
+      {
+        "command": "gumpbox.showReadme",
+        "title": "Gumpbox: Show Readme"
+      },
+      {
+        "command": "gumpbox.showActivity",
+        "title": "Gumpbox: Show Activity"
+      },
+      {
+        "command": "gumpbox.seedSkills",
+        "title": "Gumpbox: Seed Starter Skills"
+      }
     ],
     "configuration": {
       "title": "Gumpbox",

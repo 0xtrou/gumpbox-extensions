@@ -1,6 +1,6 @@
 {
   "name": "@gumpbox/claude-code-plugin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Installer for the gumpbox MCP plugin in Claude Code.",
   "license": "MIT",
   "scripts": {

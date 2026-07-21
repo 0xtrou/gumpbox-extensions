@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "description": "Open-source MCP client plugins for the gumpbox app.",
   "license": "MIT",
-  "engines": { "node": ">=20.0.0", "pnpm": ">=9.0.0" },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
   "packageManager": "pnpm@9.12.0",
   "scripts": {
     "build": "pnpm --filter '@gumpbox/core' build && pnpm --filter '@gumpbox/skills' build && pnpm --filter './packages/**' run build",
@@ -16,6 +19,7 @@
     "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.9",
     "typescript": "^5.6.0"
   }
